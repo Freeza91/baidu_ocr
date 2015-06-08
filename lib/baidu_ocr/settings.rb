@@ -1,23 +1,34 @@
 module BaiduOcr
   module Settings
+
     class << self
       DEFAULT_OPTIONS = {
-          :fromdevice    => 'string  是 bodyParam来源，例如：android、iPhone、pc等pc',
-          :clientip      => 'string  是 bodyParam客户端出口IP10.10.10.0',
-          :detecttype    => 'application/x-www-form-urlencoded',
-          :languagetype  => "https://acc.qbox.me/oauth2/token",
-          :imagetype     => "http://rs.qiniu.com",
-          :image         => "http://rsf.qbox.me",
-          :apikey        => "0ca2f9349a0b41889c1cb955c0d20761",
-        }
+        :fromdevice    => 'pc',
+        :clientip      => '10.10.10.0',
+        :detecttype    => 'LocateRecognize',
+        :languagetype  => "CHN_ENG",
+        :imagetype     => "1",
+        :image         => "",
+        :apikey        => "your api key"
+      }
 
       attr_reader :settings
 
+      REQUIRED_OPTION_KEYS = [:languagetype, :imagetype, :image, :apikey]
+
       def set_baidu_ocr(opts = {})
         @settings = DEFAULT_OPTIONS.merge!(opts)
-        Raise MissingArgsError, :apikey unless @settings.has_key?(:apikey)
+
+        REQUIRED_OPTION_KEYS.each do |opt|
+          raise BlankArgsError, opt if @settings[opt].to_s.strip.empty?
+        end
+      end
+
+      def update_image(image)
+        @settings[:image] = image
       end
 
     end
+
   end
 end
