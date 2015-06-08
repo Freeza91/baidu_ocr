@@ -9,10 +9,11 @@ Gem::Specification.new do |spec|
   spec.authors       = ["rudyboy"]
   spec.email         = ["useyes91@gmail.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
+  spec.summary       = %q{add rspec and base image for ocr.}
   spec.description   = %q{百度OCR文字识别API For Ruby Gems
 http://apistore.baidu.com/apiworks/servicedetail/146.html}
-  spec.homepage      = "TODO: https://github.com/rudyboy/baidu_ocr."
+  spec.homepage      = "https://github.com/rudyboy/baidu_ocr.git"
+  spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.bindir        = "exe"
