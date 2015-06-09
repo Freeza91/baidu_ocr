@@ -10,6 +10,12 @@ Add this line to your application's Gemfile:
 gem 'baidu_ocr', :git => 'https://github.com/rudyboy/baidu_ocr'
 ```
 
+or 
+
+```ruby
+gem install baidu_ocr
+```
+
 And then execute:
 
     $ bundle
