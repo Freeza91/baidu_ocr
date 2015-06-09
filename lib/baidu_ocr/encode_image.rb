@@ -1,11 +1,19 @@
+require 'base64'
+
 module BaiduOcr
   module EncodeImage
 
     class << self
 
       def encode(image)
-        # base 64 image
-        # 弄了好一阵子，一直是图片非法什么鬼！！
+        begin
+          puts "loading file from #{image}"
+          stream = open(image, 'rb').read
+        rescue Errno::ENOENT => e
+          raise NotFound, "#{e.message}"
+        end
+        # ruby的Base64.encode64 有换行,好坑,无法满足要求
+        Base64.strict_encode64 stream
       end
     end
 

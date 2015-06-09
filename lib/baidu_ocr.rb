@@ -14,8 +14,7 @@ module BaiduOcr
       BaiduOcr::Settings.set_baidu_ocr opt
       image = case opt[:imagetype]
       when 1
-        # base64 image
-        # opt[:image] || BaiduOcr::EncodeImage.encode
+        BaiduOcr::EncodeImage.encode opt[:image]
       when 2
         BaiduOcr::FileRead.read opt[:image]
       else

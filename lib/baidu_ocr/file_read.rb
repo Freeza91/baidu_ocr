@@ -13,6 +13,7 @@ module BaiduOcr
         tmpfile = Tempfile.new(["ocr", ".jpg"])
         begin
           # can not save image extension like '.jpg'
+          # 百度是靠文件名来判断的，暂时采用temfile来自定义文件名
           # http://stackoverflow.com/questions/9940633/is-it-possible-to-have-open-uri-maintain-the-extension
           puts "loading file from #{image}"
           stream = open(image, 'rb').read

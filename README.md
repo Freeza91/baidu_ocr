@@ -20,19 +20,30 @@ And then execute:
 ``` ruby
 require 'baidu_ocr'
 
-# local image
-
+# local image && imagetype = 1
 BaiduOcr.init_baidu_ocr(apikey: 'your api',
-                        image: 'bit.jpg', 
+                        image: 'bit.jpg',
+                        imagetype: 1)
+puts BaiduOcr.recognize
+
+# local image && imagetype = 2
+BaiduOcr.init_baidu_ocr(apikey: 'your api',
+                        image: 'bit.jpg',
                         imagetype: 2)
 puts BaiduOcr.recognize
 
-# image from web
-
+# image from web && imagetype = 1
 BaiduOcr.init_baidu_ocr(apikey: 'your api',
-                        image: 'https://raw.githubusercontent.com/rudyboy/baidu_ocr/master/examples/bit.jpg', 
+                        image: 'https://raw.githubusercontent.com/rudyboy/baidu_ocr/master/examples/bit.jpg',
+                        imagetype: 1)
+puts BaiduOcr.recognize
+
+# image from web && imagetype = 2
+BaiduOcr.init_baidu_ocr(apikey: 'your api',
+                        image: 'https://raw.githubusercontent.com/rudyboy/baidu_ocr/master/examples/bit.jpg',
                         imagetype: 2)
 puts BaiduOcr.recognize
+
 ```
 
 ## 结果对比
