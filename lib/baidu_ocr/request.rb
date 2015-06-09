@@ -20,7 +20,7 @@ module BaiduOcr
       end
 
       def words(text)
-        text.collect{|k| k['word']}.join('')
+        text.collect{|k| k['word']}.join("\n")
       end
 
     end
