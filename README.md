@@ -26,6 +26,19 @@ And then execute:
 ``` ruby
 require 'baidu_ocr'
 
+# 参数说明
+# 1. detectType 
+# LocateRecognize: 整图文字检测、识别,以行为单位（默认）
+# Locate:整图文字行定位
+# Recognize:整图文字识别
+# SingleCharRecognize:单字图像识别
+
+# 2. languageType
+# CHN_ENG(中英)（默认）
+# ENG（英文）
+# JAP(日文)
+# KOR(韩文)
+
 # local image && imagetype = 1
 BaiduOcr.init_baidu_ocr(apikey: 'your api',
                         image: 'bit.jpg',
@@ -48,6 +61,17 @@ puts BaiduOcr.recognize
 BaiduOcr.init_baidu_ocr(apikey: 'your api',
                         image: 'https://raw.githubusercontent.com/rudyboy/baidu_ocr/master/examples/bit.jpg',
                         imagetype: 2)
+puts BaiduOcr.recognize
+
+# 完全自定义参数
+BaiduOcr.init_baidu_ocr(fromdevice:'your device',
+                        clientip: 'your clientip',
+                        detecttype: 'your detecttype',
+                        languagetype: 'your languagetype',
+                        imagetype: 'your imagetype',
+                        image: 'your image path',
+                        apikey: 'your api'
+                        )
 puts BaiduOcr.recognize
 
 ```
